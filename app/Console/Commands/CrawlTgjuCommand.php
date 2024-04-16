@@ -39,7 +39,7 @@ class CrawlTgjuCommand extends Command
         $bar = $this->output->createProgressBar(count($urls));
         foreach ($urls as $page) {
             // Log::info(json_encode($page));
-            CrawlingJob::dispatchSync($page);
+            CrawlingJob::dispatch($page);
             $bar->advance();
         }
         $bar->finish();
