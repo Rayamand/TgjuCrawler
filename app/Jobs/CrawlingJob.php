@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\CrawelLog;
+use App\Models\CrawlLog;
 use App\Models\Product;
 use App\Models\Rate;
 use Carbon\Carbon;
@@ -33,7 +34,7 @@ class CrawlingJob implements ShouldQueue
     public function handle(): void
     {
         $page = $this->page;
-        $log = CrawelLog::whereUrl($page['loc'])->first();
+        $log = CrawlLog::whereUrl($page['loc'])->first();
         if ($log) {
             if ($log['last_modified_at']->timestamp >= strtotime($page['lastmod'])) {
                 return;
@@ -61,7 +62,7 @@ class CrawlingJob implements ShouldQueue
             }
         }
 
-        CrawelLog::create([
+        CrawlLog::create([
             'last_modified_at' => new Carbon($page['lastmod']),
             'url' => $page['loc']
         ]);

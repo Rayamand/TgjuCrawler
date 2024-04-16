@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('crawel_logs', function (Blueprint $table) {
+        Schema::create('crawl_logs', function (Blueprint $table) {
             $table->id();
             $table->string('url');
             $table->timestamp('last_modified_at');
@@ -22,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('crawel_logs');
+        Schema::dropIfExists('crawl_logs');
     }
 };
