@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->string('symbol');
-            $table->float('price');
+            $table->decimal('price', 20, 6);
             $table->timestamps();
         });
     }
