@@ -16,3 +16,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/App/Console/Commands/SendSmsCommand.php
